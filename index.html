@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlayStation</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="./playstation logo" type="image/x-icon">
+
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+      background-color: #000;
+      padding: 1rem 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #0070d1 !important;
+    }
+
+    .icon-button {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      color: #0070d1;
+    }
+
+    .hero {
+      background: url('./Ghost') no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .btn-primary {
+      background-color: #0070d1;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #005bb5;
+    }
+
+    .product-card {
+      background-color: #121212;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      padding: 1rem;
+      text-align: center;
+      color: white;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .btn-secondary {
+      border: 2px solid #0070d1;
+      color: #0070d1;
+      background: none;
+    }
+
+    .btn-secondary:hover {
+      background-color: #0070d1;
+      color: white;
+    }
+
+    footer {
+      background-color: #000000;
+      padding: 1.5rem 0;
+      border-top: 1px solid #222;
+      color: #777777;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #777;
+      margin-right: 1rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #0070d1;
+    }
+
+    /* Styles for new sections (Marvel, FAQs, Legal) */
+    .content-section {
+      background-color: #0b0b0b; /* Inherit body background */
+      padding: 3rem 0;
+      margin-top: 3rem;
+      color: white;
+    }
+
+    .content-section h2 {
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    .content-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      display: block; /* Center image */
+      margin: 0 auto; /* Center image */
+    }
+
+    /* Styles for Bootstrap Accordion to match dark theme */
+    .accordion-item {
+      background-color: #121212; /* Darker background for accordion items */
+      border: 1px solid #222;
+      margin-bottom: 10px; /* Spacing between accordion items */
+      border-radius: 8px; /* Match product card border-radius */
+    }
+
+    .accordion-header .accordion-button {
+      background-color: #121212; /* Darker background for header */
+      color: white; /* White text for header */
+      border: none;
+      font-weight: 600;
+      padding: 1rem 1.25rem;
+      border-radius: 8px; /* Match product card border-radius */
+    }
+
+    .accordion-header .accordion-button:not(.collapsed) {
+      background-color: #0070d1; /* Highlight when open */
+      color: white;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .accordion-header .accordion-button:focus {
+      box-shadow: 0 0 0 0.25rem rgba(0, 112, 209, 0.25); /* Focus outline color */
+      border-color: #0070d1;
+    }
+
+    .accordion-body {
+      background-color: #1a1a1a; /* Slightly lighter dark background for body */
+      color: #cccccc; /* Lighter grey for body text */
+      padding: 1.25rem;
+      border-top: 1px solid #222;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .accordion-button::after {
+      filter: invert(1); /* Invert arrow color for dark background */
+    }
+
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-item {
+        margin-bottom: 0.5rem;
+      }
+
+      .hero {
+        height: auto;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .product-card {
+        padding: 1rem 0.5rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .content-section {
+        padding: 2rem 1rem;
+      }
+
+      .content-section h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .logo img {
+        height: 30px;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: auto;
+      }
+
+      .icon-button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+  <header>
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+      <a href="#" class="logo" aria-label="PlayStation Home">
+        <img src="./playstation logo" alt="PlayStation Logo" />
+      </a>
+
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#">PS5</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">PS4</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Games</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">VR</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+        </ul>
+      </nav>
+
+      <div class="d-flex gap-3 mt-2 mt-md-0">
+        <button class="icon-button">🔍</button>
+        <button class="icon-button">🛒</button>
+        <button class="icon-button">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero text-white">
+    <div class="container">
+      <h1 class="display-4">Play Has No Limits</h1>
+      <p class="lead">Experience the next generation of gaming with PlayStation 5.</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h2 class="mb-4">Featured Products</h2>
+
+    <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./Ps digital edition" alt="PS5 Digital Edition">
+                <h3>PS5 Digital Edition</h3>
+                <p>Next-gen gaming without a disc drive.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./ps5 disc edition" alt="PS5 Console">
+                <h3>PS5 Disc Edition</h3>
+                <p>Lightning-fast loading and stunning graphics.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./ps vr2" alt="PlayStation VR2">
+                <h3>PlayStation VR2</h3>
+                <p>Step into new worlds with immersive VR gaming.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./pulse 3d headset" alt="Pulse 3D Headset">
+                <h3>Pulse 3D Headset</h3>
+                <p>Experience 3D audio like never before.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./charging station" alt="Charging Station">
+                <h3>Charging Station</h3>
+                <p>Charge up your controllers quickly and easily.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="product-card">
+                <img src="./Dualsense controller" alt="Media Remote">
+                <h3>DualSense Controller</h3>
+                <p>Seamless media control for your console.</p>
+                <a href="#" class="btn btn-secondary">Shop Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h2 class="mb-4">Featured Games</h2>
+
+    <div id="gamesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./spiderman 2.jpeg" alt="Spider-Man 2">
+                <h3 class="mt-3">Spider-Man 2</h3>
+                <p>Swing through New York in the latest Spider-Man adventure.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./horizon forbidden west.jpg" alt="Horizon Forbidden West">
+                <h3 class="mt-3">Horizon Forbidden West</h3>
+                <p>Join Aloy in a world of machines and mystery.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./ratchet and clank.jpg" alt="Ratchet & Clank">
+                <h3 class="mt-3">Ratchet & Clank: Rift Apart</h3>
+                <p>Jump through dimensions with dynamic duo Ratchet and Clank.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./GTA 6" alt="GTA VI">
+                <h3 class="mt-3">GTA VI</h3>
+                <p>Get ready for the action packed gameplay in the streets.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./gow ragnarok" alt="God of War">
+                <h3 class="mt-3">God of War: Ragnarök</h3>
+                <p>Battle gods and monsters in this epic Norse saga.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./GT 7" alt="Gran Turismo 7">
+                <h3 class="mt-3">Gran Turismo 7</h3>
+                <p>Drive the most realistic racing experience ever made.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./LOS II" alt="The Last of Us Part II">
+                <h3 class="mt-3">The Last of Us Part I</h3>
+                <p>Revisit the beloved story with enhanced visuals and gameplay.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./Final fantasy 16" alt="Final Fantasy XVI">
+                <h3 class="mt-3">Final Fantasy XVI</h3>
+                <p>Enter a dark fantasy realm full of war and magic.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="product-card h-100">
+                <img src="./cod mw 3" alt="Modern Warfare III">
+                <h3 class="mt-3">Call of Duty: Modern Warfare III</h3>
+                <p>Gear up for intense FPS combat and action.</p>
+                <a href="#" class="btn btn-secondary">Play Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#gamesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gamesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2>In Partnership with Marvel</h2>
+      <img src="./Marvel logo" alt="Marvel Entertainment logo" class="img-fluid mb-4" width="250px">
+      <p class="text-center">Explore games from the Marvel universe on PlayStation.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Can I play PS4 games on my PS5 console?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>Yes, the PlayStation 5 console is backward compatible with the vast majority of PS4 games. You can insert your PS4 game discs directly into the PS5 console (disc edition) or download your digital PS4 games from the PlayStation Store.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              When did PS5 consoles come out?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>The PlayStation 5 console was first released on November 12, 2020, in North America, Australia, New Zealand, Japan, and South Korea, and on November 19, 2020, in Europe, the Middle East, South America, Asia, and Africa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Can I use Discord on PS5 consoles?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>As of recent updates, PlayStation has integrated Discord voice chat directly into the PS5. You can link your Discord account to your PlayStation Network account and join Discord voice chats directly from your console.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              How much do PS5 consoles cost?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>The price of PS5 consoles varies by region and model (disc edition vs. digital edition). Please check your local retailer or the official PlayStation Store for the most current pricing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Where can I get help and support for my PS5 console?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>You can find comprehensive support and troubleshooting guides on the official PlayStation Support website. You can also contact PlayStation customer service directly for personalized assistance.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Is the slim PS5 console the same as the original model?
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>The PS5 Slim model offers a more compact design with slightly reduced weight compared to the original. Functionality and performance are largely similar, though there might be minor internal revisions. Both offer the same great gaming experience.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <h2 class="text-center mb-4">Legal & Copyright Information</h2>
+      <div class="p-4 rounded" style="background-color: #121212; color: #ccc; font-size: 0.95rem; line-height: 1.6;">
+        <p>&copy; 2025 Sony Interactive Entertainment LLC. All rights reserved.</p>
+        <p>Developed by Insomniac Games, Inc.</p>
+        <br>
+        <p>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              What accessories are available for the PS5?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <p>Accessories for the PS5 include the DualSense wireless controller, Pulse 3D headset, Media Remote, HD Camera, and DualSense charging station. Each enhances your gaming and entertainment experience on the console.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div class="footer-links mb-3 mb-md-0">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Support</a>
+        <a href="#">Legal</a>
+      </div>
+      <div>
+        &copy; 2025 PlayStation. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
